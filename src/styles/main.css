@@ -1,0 +1,27 @@
+@tailwind base;
+
+a {
+  @apply text-blue-700;
+}
+
+a:hover {
+  @apply underline;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:bg-blue-charcoal-950 bg-white-50;
+  }
+
+  h1 {
+    @apply dark:text-deep-blush-400 text-sundown-300;
+  }
+
+  a {
+    @apply dark:text-deep-blush-400;
+  }
+}
