@@ -17,6 +17,8 @@ export function getPostBySlug(slug: string, fields: Fields = []) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  console.log("data", data);
+
   const items = Object.assign(
     {},
     ...Object.entries({ ...fields }).map(([_, b]) => {

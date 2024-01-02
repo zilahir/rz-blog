@@ -11,7 +11,7 @@ type IMetaProps = {
   title: string;
   description: string;
   canonical?: string;
-  post: Pick<
+  post?: Pick<
     Post,
     "image" | "date" | "modified_date" | "languages" | "categories"
   >;
