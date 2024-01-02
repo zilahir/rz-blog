@@ -20,8 +20,4 @@ a:hover {
   h1 {
     @apply dark:text-deep-blush-400 text-sundown-300;
   }
-
-  a {
-    @apply dark:text-deep-blush-400;
-  }
 }

@@ -13,10 +13,7 @@ function ThemeSwithcer() {
   }
 
   return (
-    <button
-      className="text-2xl dark:text-white-50"
-      onClick={(): void => handleThemeToggle()}
-    >
+    <button className="text-2xl" onClick={(): void => handleThemeToggle()}>
       {theme === "light" && <MdDarkMode />}
       {theme === "dark" && <MdOutlineLightMode />}
     </button>
