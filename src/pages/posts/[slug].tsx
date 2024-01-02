@@ -44,7 +44,7 @@ const DisplayPost = (props: IPostProps) => (
     <Content>
       <div
         // eslint-disable-next-line react/no-danger
-        className="dark:text-white-50"
+        className="dark:text-white-200"
         dangerouslySetInnerHTML={{ __html: props.content }}
       />
     </Content>

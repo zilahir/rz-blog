@@ -27,7 +27,7 @@ const Content = (props: IContentProps) => (
         }
 
         .content :global(h3) {
-          @apply text-xl font-semibold text-white-50 my-4;
+          @apply text-xl font-semibold text-white-100 my-4;
         }
       `}
     </style>

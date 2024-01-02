@@ -7,7 +7,7 @@ import "../styles/main.css";
 import "../styles/prism-a11y-dark.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  <ThemeProvider enableSystem={false} attribute="class">
+  <ThemeProvider defaultTheme="dark" enableSystem={false} attribute="class">
     <Component {...pageProps} />
   </ThemeProvider>
 );

@@ -35,17 +35,12 @@ const Navbar = (props: INavbarProps) => (
       {props.links[1].map(({ label, target }) => (
         <li key={target} className="mr-6">
           <Link href={target}>
-            <a>{label}</a>
+            <a className="dark:hover:text-white-50 hover:text-deep-blush-900 text-deep-blush-400">
+              {label}
+            </a>
           </Link>
         </li>
       ))}
-      <style jsx>
-        {`
-          .navbar :global(a:hover) {
-            @apply text-white-50;
-          }
-        `}
-      </style>
     </ul>
   </>
 );
