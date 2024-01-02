@@ -13,14 +13,14 @@ type IPostUrl = {
   slug: string;
 };
 
-type IPostProps = {
+interface IPostProps {
   title: string;
   description: string;
   date: string;
   modified_date: string;
   image: string;
   content: string;
-};
+}
 
 const DisplayPost = (props: IPostProps) => (
   <Main
@@ -36,16 +36,15 @@ const DisplayPost = (props: IPostProps) => (
       />
     }
   >
-    <h1 className="text-center font-bold text-3xl text-gray-900">
-      {props.title}
-    </h1>
-    <div className="text-center text-sm mb-8">
-      {format(new Date(props.date), "LLLL d, yyyy")}
+    <div className="text-sm mb-8">
+      <h1 className="font-bold text-3xl text-gray-900">{props.title}</h1>
+      <h2>{format(new Date(props.date), "LLLL d, yyyy")}</h2>
     </div>
 
     <Content>
       <div
         // eslint-disable-next-line react/no-danger
+        className="dark:text-white-50"
         dangerouslySetInnerHTML={{ __html: props.content }}
       />
     </Content>

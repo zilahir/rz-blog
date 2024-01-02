@@ -11,7 +11,8 @@
     "clean": "rimraf .next out",
     "lint": "next lint",
     "build-types": "tsc --noEmit --pretty",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean:ds": "rm **/.DS_Store"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.8.0",

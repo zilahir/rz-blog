@@ -17,7 +17,7 @@ Finnországban, egy másik EU-s tagországban forgalomba helyezett autót, 6+6 h
 
 ![Error](@@baseUrl@@/assets/images/posts/plates.jpg)
 
-Mivel Finnországban sem lehet még EU-s állampolgárként sem 3 hónapnál tovább tartózkodni, akinek ilyen tervei vannak, ígyis-úgyis el kell mennie a _Migri_-be, ahol tartózkodási engedélyt kell igényelni, elmesélni, hogy milyen okból tartózkodik az országban, stb. Ez azért (is) fontos, mert a tartüzkodási engedéllyel együtt kapunk ún. \_Henkilötunnus_t, ami lényegében a személyiigazolványuk száma lesz, és ami nélkül még egy internet előfizetést sem tudunk intézni egyébként.
+Mivel Finnországban sem lehet még EU-s állampolgárként sem 3 hónapnál tovább tartózkodni, akinek ilyen tervei vannak, ígyis-úgyis el kell mennie a _Migri_-be, ahol tartózkodási engedélyt kell igényelni, elmesélni, hogy milyen okból tartózkodik az országban, stb. Ez azért (is) fontos, mert a tartüzkodási engedéllyel együtt kapunk ún. _Henkilötunnus_-t, ami lényegében a személyiigazolványuk száma lesz, és ami nélkül még egy internet előfizetést sem tudunk intézni egyébként.
 
 Amint ezt elintéztük, a rendőrségen kell bejelteni, hogy magyar (vagy más EU-s rendszámú) autót szeretnénk használni. Ekkor kapunk egy határozatot arról, hogy az autót 6 hónapig használhatjuk, majd ennek leteltével még egyszer 6 hónapra meghosszabítható.
 

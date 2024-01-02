@@ -62,7 +62,7 @@ const Main = (props: IMainProps) => (
       <div className="text-xl py-5">{props.children}</div>
 
       <div className="border-t border-white-900 text-center py-8 text-sm">
-        © Copyright {new Date().getFullYear()} {AppConfig.title}. Written by
+        © Copyright {new Date().getFullYear()} {AppConfig.title}. Written with{" "}
         <span role="img" aria-label="Love">
           ♥
         </span>{" "}
