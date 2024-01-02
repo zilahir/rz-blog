@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-import { AppConfig } from '../utils/AppConfig';
-import { addTrailingSlash } from '../utils/Url';
+import { Post } from "../types/Post";
+import { AppConfig } from "../utils/AppConfig";
+import { addTrailingSlash } from "../utils/Url";
 
 type IMetaProps = {
   title: string;
   description: string;
   canonical?: string;
-  post?: {
-    image: string;
-    date: string;
-    modified_date: string;
-  };
+  post: Pick<
+    Post,
+    "image" | "date" | "modified_date" | "languages" | "categories"
+  >;
 };
 
 const Meta = (props: IMetaProps) => {

@@ -1,9 +1,7 @@
 ---
 title: Autóhonosítás Finnországban
 date: "2018-11-10"
-tags:
-  - "finnország, suomi"
-categories: [finnország, hun]
+categories: ["finnország"]
 isPublic: true
 languages: ["hu"]
 description: "Autóhonosítás Finnországban. Quick Quide"

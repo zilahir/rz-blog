@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Content } from "../../content/Content";
 import { Meta } from "../../layout/Meta";
 import { Main } from "../../templates/Main";
+import { Post } from "../../types/Post";
 import { getAllPosts, getPostBySlug } from "../../utils/Content";
 import { markdownToHtml } from "../../utils/Markdown";
 
@@ -13,14 +14,7 @@ type IPostUrl = {
   slug: string;
 };
 
-interface IPostProps {
-  title: string;
-  description: string;
-  date: string;
-  modified_date: string;
-  image: string;
-  content: string;
-}
+interface IPostProps extends Post {}
 
 const DisplayPost = (props: IPostProps) => (
   <Main
@@ -32,6 +26,8 @@ const DisplayPost = (props: IPostProps) => (
           image: props.image,
           date: props.date,
           modified_date: props.modified_date,
+          languages: props.languages,
+          categories: props.categories,
         }}
       />
     }
@@ -75,6 +71,8 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
     "image",
     "content",
     "slug",
+    "languages",
+    "categories",
   ]);
   const content = await markdownToHtml(post.content || "");
 
@@ -86,6 +84,8 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
       modified_date: post.modified_date,
       image: post.image,
       content,
+      categories: post.categories,
+      languages: post.languages,
     },
   };
 };
