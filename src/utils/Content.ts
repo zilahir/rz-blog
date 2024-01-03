@@ -49,13 +49,3 @@ export function getAllPosts(fields: Fields = []) {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
-
-export function getPostByCategory(category: string) {
-  const posts = getPostSlugs();
-
-  const thisCategoryPost = posts.map((slug) =>
-    getPostBySlug(slug, ["categories"])
-  );
-
-  console.log(thisCategoryPost);
-}

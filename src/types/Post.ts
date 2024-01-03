@@ -5,9 +5,11 @@ export interface Post {
   modified_date: string;
   image: string;
   content: string;
-  languages: string[];
+  languages: Language[];
   categories: string[];
 }
+
+export type Language = "en" | "hu" | "fin";
 
 export interface PostItems extends Post {
   slug: string;

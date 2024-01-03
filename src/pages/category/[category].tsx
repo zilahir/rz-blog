@@ -4,8 +4,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import slugify from "slugify";
 
 import { BlogGallery } from "../../blog/BlogGallery";
+import { IPaginationProps } from "../../pagination/Pagination";
 import { Main } from "../../templates/Main";
 import { PaginatedPosts } from "../../types/Post";
+import { AppConfig } from "../../utils/AppConfig";
 import { getAllPosts } from "../../utils/Content";
 
 interface IBlogGalleryProps extends PaginatedPosts {}
@@ -50,13 +52,16 @@ export async function getStaticProps({
     )
   );
 
+  const pagination: IPaginationProps = {};
+
+  if (posts.length > AppConfig.pagination_size) {
+    pagination.next = "/page2";
+  }
+
   return {
     props: {
       posts: [...posts],
-      pagination: {
-        previous: 0,
-        next: 0,
-      },
+      pagination,
     },
   };
 }

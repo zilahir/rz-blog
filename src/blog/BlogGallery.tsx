@@ -5,6 +5,7 @@ import Link from "next/link";
 import slugify from "slugify";
 
 import Category from "../components/Category";
+import Language from "../components/language";
 import { Pagination } from "../pagination/Pagination";
 import { PaginatedPosts } from "../types/Post";
 
@@ -50,7 +51,16 @@ function BlogGallery(props: IBlogGalleryProps) {
               <div className="flex flex-1 justify-end">
                 <ul>
                   {elt.languages.map((language) => (
-                    <li key={language}>{language}</li>
+                    <li key={language}>
+                      <Link
+                        href="/language/[language]"
+                        as={`/language/${language}`}
+                      >
+                        <a>
+                          <Language language={language} />
+                        </a>
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -59,10 +69,13 @@ function BlogGallery(props: IBlogGalleryProps) {
         ))}
       </ul>
 
-      <Pagination
-        previous={props.pagination.previous}
-        next={props.pagination.next}
-      />
+      {props.pagination.next ||
+        (props.pagination.previous && (
+          <Pagination
+            previous={props.pagination.previous}
+            next={props.pagination.next}
+          />
+        ))}
     </>
   );
 }
