@@ -14,12 +14,7 @@ interface IBlogGalleryProps extends PaginatedPosts {}
 
 const Index = (props: IBlogGalleryProps) => (
   <Main
-    meta={
-      <Meta
-        title="Made with Next.js, TypeScript, ESLint, Prettier, PostCSS, Tailwind CSS"
-        description={AppConfig.description}
-      />
-    }
+    meta={<Meta title="zilahir – blog" description={AppConfig.description} />}
   >
     <BlogGallery posts={props.posts} pagination={props.pagination} />
   </Main>
