@@ -30,9 +30,6 @@ export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
   return {
     paths: pages.slice(1).map((_, index) => ({
       params: {
-        // Index starts from zero so we need to do index + 1
-        // slice(1) removes the first page so we do another index + 1
-        // the first page is implemented in index.tsx
         page: `page${index + 2}`,
       },
     })),

@@ -9,7 +9,9 @@ import Language from "../components/language";
 import { Pagination } from "../pagination/Pagination";
 import { PaginatedPosts } from "../types/Post";
 
-interface IBlogGalleryProps extends PaginatedPosts {}
+interface IBlogGalleryProps extends PaginatedPosts {
+  hideTags?: boolean;
+}
 
 function BlogGallery(props: IBlogGalleryProps) {
   return (
@@ -32,22 +34,24 @@ function BlogGallery(props: IBlogGalleryProps) {
               </div>
             </div>
             <div className="flex-1 flex items-center">
-              <div className="flex">
-                <ul>
-                  {elt.categories.map((category) => (
-                    <li key={category}>
-                      <Link
-                        href="/category/[category]"
-                        as={`/category/${slugify(category)}`}
-                      >
-                        <a>
-                          <Category category={category} />
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {!props.hideTags && (
+                <div className="flex">
+                  <ul>
+                    {elt.categories.map((category) => (
+                      <li key={category}>
+                        <Link
+                          href="/category/[category]"
+                          as={`/category/${slugify(category)}`}
+                        >
+                          <a>
+                            <Category category={category} />
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <div className="flex flex-1 justify-end">
                 <ul>
                   {elt.languages.map((language) => (

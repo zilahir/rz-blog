@@ -1,6 +1,11 @@
 import { ReactElement } from "react";
 
-import { GetStaticPaths, GetStaticProps } from "next";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+  PreviewData,
+} from "next";
 import slugify from "slugify";
 
 import { BlogGallery } from "../../blog/BlogGallery";
@@ -15,7 +20,11 @@ interface IBlogGalleryProps extends PaginatedPosts {}
 function CategoryPosts(props: IBlogGalleryProps): ReactElement {
   return (
     <Main>
-      <BlogGallery posts={props.posts} pagination={props.pagination} />
+      <BlogGallery
+        hideTags={true}
+        posts={props.posts}
+        pagination={props.pagination}
+      />
     </Main>
   );
 }
@@ -24,7 +33,7 @@ type IPostCategory = {
   category: string;
 };
 
-export async function getStaticPaths(): Promise<GetStaticPaths<IPostCategory>> {
+export const getStaticPaths: GetStaticPaths<IPostCategory> = async () => {
   const posts = getAllPosts(["categories"]);
   return {
     paths: posts.map((post) => ({
@@ -34,12 +43,13 @@ export async function getStaticPaths(): Promise<GetStaticPaths<IPostCategory>> {
     })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({
-  params,
-}): Promise<GetStaticProps<IBlogGalleryProps, IPostCategory>> {
-  const { category } = params;
+export const getStaticProps: GetStaticProps<
+  IBlogGalleryProps,
+  IPostCategory
+> = async ({ params }: GetStaticPropsContext<IPostCategory, PreviewData>) => {
+  const { category } = params!;
   const posts = getAllPosts([
     "title",
     "date",
@@ -64,6 +74,6 @@ export async function getStaticProps({
       pagination,
     },
   };
-}
+};
 
 export default CategoryPosts;
