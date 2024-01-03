@@ -29,7 +29,7 @@ function BlogGallery(props: IBlogGalleryProps) {
               </Link>
               <div className="flex">
                 <div className="text-right">
-                  {format(new Date(elt.date), "LLL d, yyyy")}
+                  {format(new Date(elt.date), "yyyy MMM dd")}
                 </div>
               </div>
             </div>

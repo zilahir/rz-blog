@@ -6,7 +6,7 @@ interface ICategory {
 
 function Category({ category }: ICategory): ReactElement {
   return (
-    <div className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+    <div className="dark:bg-deep-blush-600 text-white-100 text-xs font-medium me-2 px-2.5 py-0.5 rounded bg-deep-blush-400 dark:text-blue-300">
       <p>{category}</p>
     </div>
   );
