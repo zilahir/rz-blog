@@ -2,9 +2,10 @@ import React from "react";
 
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { BlogGallery, IBlogGalleryProps } from "../blog/BlogGallery";
+import { BlogGallery } from "../blog/BlogGallery";
 import { IPaginationProps } from "../pagination/Pagination";
 import { Main } from "../templates/Main";
+import { PaginatedPosts } from "../types/Post";
 import { AppConfig } from "../utils/AppConfig";
 import { getAllPosts } from "../utils/Content";
 import { convertTo2D } from "../utils/Pagination";
@@ -12,6 +13,8 @@ import { convertTo2D } from "../utils/Pagination";
 type IPageUrl = {
   page: string;
 };
+
+interface IBlogGalleryProps extends PaginatedPosts {}
 
 const PaginatePosts = (props: IBlogGalleryProps) => (
   <Main>

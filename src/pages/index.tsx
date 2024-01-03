@@ -2,12 +2,15 @@ import React from "react";
 
 import { GetStaticProps } from "next";
 
-import { BlogGallery, IBlogGalleryProps } from "../blog/BlogGallery";
+import { BlogGallery } from "../blog/BlogGallery";
 import { Meta } from "../layout/Meta";
 import { IPaginationProps } from "../pagination/Pagination";
 import { Main } from "../templates/Main";
+import { PaginatedPosts } from "../types/Post";
 import { AppConfig } from "../utils/AppConfig";
 import { getAllPosts } from "../utils/Content";
+
+interface IBlogGalleryProps extends PaginatedPosts {}
 
 const Index = (props: IBlogGalleryProps) => (
   <Main
@@ -23,7 +26,13 @@ const Index = (props: IBlogGalleryProps) => (
 );
 
 export const getStaticProps: GetStaticProps<IBlogGalleryProps> = async () => {
-  const posts = getAllPosts(["title", "date", "slug", "languages"]);
+  const posts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "languages",
+    "categories",
+  ]);
   const pagination: IPaginationProps = {};
 
   if (posts.length > AppConfig.pagination_size) {

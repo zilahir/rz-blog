@@ -14,9 +14,7 @@ type IPostUrl = {
   slug: string;
 };
 
-interface IPostProps extends Post {}
-
-const DisplayPost = (props: IPostProps) => (
+const DisplayPost = (props: Post) => (
   <Main
     meta={
       <Meta
@@ -60,7 +58,7 @@ export const getStaticPaths: GetStaticPaths<IPostUrl> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
+export const getStaticProps: GetStaticProps<Post, IPostUrl> = async ({
   params,
 }) => {
   const post = getPostBySlug(params!.slug, [
