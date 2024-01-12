@@ -29,7 +29,6 @@ const getViews = async (slug: string): Promise<number> => {
     .match({ slug })
     .single();
 
-  console.log("error", error);
   if (error && error.details.includes(`0 rows`)) {
     const { data, error } = await supabase
       .from(`views`)
@@ -42,6 +41,7 @@ const getViews = async (slug: string): Promise<number> => {
 };
 
 const registerView = async (slug: string): Promise<void> => {
+  registerview;
   await supabase.rpc("increment", {
     slug_text: slug,
   });
