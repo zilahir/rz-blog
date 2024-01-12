@@ -8,6 +8,7 @@ export interface Post {
   content: string;
   languages: Language[];
   categories: string[];
+  readingDuration: string;
 }
 
 export type Language = "en" | "hu" | "fin";

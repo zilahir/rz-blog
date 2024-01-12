@@ -32,7 +32,8 @@ function BlogGallery(props: IBlogGalleryProps) {
                 <div className="text-right flex text-[14px] gap-2">
                   <p>{format(new Date(elt.date), "dd MMM yyyy")}</p>
                   |
-                  <ViewCounter slug={elt.slug} shouldRegisterView={false} />
+                  <ViewCounter slug={elt.slug} shouldRegisterView={false} />|
+                  <p>{elt.readingDuration}</p>
                 </div>
               </div>
             </div>

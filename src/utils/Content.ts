@@ -2,6 +2,7 @@ import fs from "fs";
 import { join } from "path";
 
 import matter from "gray-matter";
+import readingDuration from "reading-duration";
 
 import { Fields } from "../types/Post";
 
@@ -17,12 +18,18 @@ export function getPostBySlug(slug: string, fields: Fields = []) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  const duration = readingDuration(content, {
+    wordsPerMinute: 100,
+    emoji: false,
+  });
+
   const items = Object.assign(
     {},
     ...Object.entries({ ...fields }).map(([_, b]) => {
       if (b === "slug") {
         return {
           slug: realSlug,
+          readingDuration: duration,
         };
       }
       if (b === "content") {

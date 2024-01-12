@@ -33,8 +33,11 @@ const DisplayPost = (props: Post) => (
   >
     <div className="text-sm mb-8">
       <h1 className="font-bold text-3xl text-gray-900">{props.title}</h1>
-      <h2>{format(new Date(props.date), "LLLL d, yyyy")}</h2>
-      <ViewCounter slug={props.slug} shouldRegisterView />
+      <div className="flex gap-2">
+        <h2>{format(new Date(props.date), "LLLL d, yyyy")}</h2> |
+        <ViewCounter slug={props.slug} shouldRegisterView /> |
+        <p>{props.readingDuration}</p>
+      </div>
     </div>
 
     <Content>
@@ -87,6 +90,7 @@ export const getStaticProps: GetStaticProps<Post, IPostUrl> = async ({
       categories: post.categories,
       languages: post.languages,
       slug: post.slug,
+      readingDuration: post.readingDuration,
     },
   };
 };
