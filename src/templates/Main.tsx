@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
-import { FaTwitter } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
 
 import ThemeSwithcer from "../components/ThemeSwitcher";
 import { Navbar } from "../navigation/Navbar";
@@ -18,10 +17,29 @@ const Main = (props: IMainProps) => (
     {props.meta && props.meta}
 
     <div className="max-w-screen-md mx-auto">
-      <div className="border-b border-white-900">
-        <div className="pt-16 pb-8 flex flex-row justify-center items-center">
+      <div className="flex pt-6">
+        <Navbar
+          links={[
+            [
+              {
+                label: "Home",
+                target: "/",
+              },
+              {
+                label: "About",
+                target: "/about",
+              },
+            ],
+            [],
+          ]}
+        />
+        <ThemeSwithcer />
+      </div>
+
+      <div className="border-b border-white-900 pt-16 pb-8">
+        <div className="flex flex-row justify-center items-center">
           <div className="flex-1">
-            <div className="font-semibold text-3xl">
+            <div className="font-semibold text-3xl flex justify-between">
               <h1 className="dark:text-white-50">
                 <Link href="/">
                   <a className="text-deep-blush-400 hover:no-underline">
@@ -29,41 +47,23 @@ const Main = (props: IMainProps) => (
                   </a>
                 </Link>
               </h1>
+              <div>
+                <Image
+                  src="/assets/images/profile.png"
+                  alt="zilahir"
+                  width={30}
+                  height={30}
+                  className="rounded-md"
+                />
+              </div>
             </div>
             <div className="text-xl">
               <h2 className="dark:text-white-100">{AppConfig.description}</h2>
             </div>
           </div>
-          <div>
-            <ThemeSwithcer />
-          </div>
+          <div></div>
         </div>
-        <div className="flex items-center pb-[20px]">
-          <Navbar
-            links={[
-              [
-                {
-                  label: "Home",
-                  target: "/",
-                },
-                {
-                  label: "About",
-                  target: "/about",
-                },
-              ],
-              [
-                {
-                  label: <FiGithub />,
-                  target: "https://www.github.com/zilahir",
-                },
-                {
-                  label: <FaTwitter />,
-                  target: "https://twitter.com/zilahy",
-                },
-              ],
-            ]}
-          />
-        </div>
+        <div className="flex items-center pb-[20px]"></div>
       </div>
 
       <div className="text-xl py-5">{props.children}</div>
