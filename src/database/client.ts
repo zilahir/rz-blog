@@ -41,7 +41,6 @@ const getViews = async (slug: string): Promise<number> => {
 };
 
 const registerView = async (slug: string): Promise<void> => {
-  registerview;
   await supabase.rpc("increment", {
     slug_text: slug,
   });
