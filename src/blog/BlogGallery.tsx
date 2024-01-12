@@ -6,6 +6,7 @@ import slugify from "slugify";
 
 import Category from "../components/Category";
 import Language from "../components/language";
+import ViewCounter from "../components/ViewCount";
 import { Pagination } from "../pagination/Pagination";
 import { PaginatedPosts } from "../types/Post";
 
@@ -19,7 +20,7 @@ function BlogGallery(props: IBlogGalleryProps) {
       <ul>
         {props.posts.map((elt) => (
           <li key={elt.slug} className="mb-3 flex justify-between flex-col">
-            <div className="flex flex-1 items-center mb-3">
+            <div className="flex flex-1 items-start mb-3 flex-col">
               <Link href="/posts/[slug]" as={`/posts/${elt.slug}`}>
                 <a className="flex-1 no-underline text-deep-blush-400 dark:hover:text-deep-blush-400">
                   <h2 className="text-2xl dark:text-deep-blush-400">
@@ -28,8 +29,10 @@ function BlogGallery(props: IBlogGalleryProps) {
                 </a>
               </Link>
               <div className="flex">
-                <div className="text-right">
-                  {format(new Date(elt.date), "yyyy MMM dd")}
+                <div className="text-right flex text-[14px] gap-2">
+                  <p>{format(new Date(elt.date), "dd MMM yyyy")}</p>
+                  |
+                  <ViewCounter slug={elt.slug} shouldRegisterView={false} />
                 </div>
               </div>
             </div>
@@ -60,7 +63,7 @@ function BlogGallery(props: IBlogGalleryProps) {
                         href="/language/[language]"
                         as={`/language/${language}`}
                       >
-                        <a>
+                        <a className="hover:no-underline">
                           <Language language={language} />
                         </a>
                       </Link>

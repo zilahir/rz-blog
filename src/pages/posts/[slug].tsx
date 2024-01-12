@@ -3,6 +3,7 @@ import React from "react";
 import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps } from "next";
 
+import ViewCounter from "../../components/ViewCount";
 import { Content } from "../../content/Content";
 import { Meta } from "../../layout/Meta";
 import { Main } from "../../templates/Main";
@@ -33,6 +34,7 @@ const DisplayPost = (props: Post) => (
     <div className="text-sm mb-8">
       <h1 className="font-bold text-3xl text-gray-900">{props.title}</h1>
       <h2>{format(new Date(props.date), "LLLL d, yyyy")}</h2>
+      <ViewCounter slug={props.slug} shouldRegisterView />
     </div>
 
     <Content>
@@ -84,6 +86,7 @@ export const getStaticProps: GetStaticProps<Post, IPostUrl> = async ({
       content,
       categories: post.categories,
       languages: post.languages,
+      slug: post.slug,
     },
   };
 };

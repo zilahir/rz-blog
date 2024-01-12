@@ -1,4 +1,5 @@
 export interface Post {
+  slug: string;
   title: string;
   description: string;
   date: string;
@@ -26,4 +27,8 @@ export interface Pagination {
 export interface PaginatedPosts {
   posts: PostItems[];
   pagination: Pagination;
+}
+
+export interface ViewCount {
+  count: number;
 }
